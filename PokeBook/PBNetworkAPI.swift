@@ -13,11 +13,11 @@ class PBNetworkAPI {
   
   static let shared = PBNetworkAPI()
  
-  private init() {
-    
-  }
+  private init() {}
   
-  
-  
+  let kPBPokemonEndPoint = "https://pokeapi.co/api/v2/pokemon/"
+  let kPBPokemonSpritesEndPoint = "http://pokeapi.co/media/sprites/pokemon/"
+  let kPBItemsSpritesEndPoint = "http://pokeapi.co/media/sprites/items/"
+
 
 }
