@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="polemonCell" rowHeight="96" id="Bq3-fn-Lrt" customClass="PBPokemonTableViewCell" customModule="PokeBook" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemonCell" rowHeight="96" id="Bq3-fn-Lrt" customClass="PBPokemonTableViewCell" customModule="PokeBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bq3-fn-Lrt" id="mDy-SZ-iTB">
@@ -120,6 +120,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0CD-PW-btG" id="ec8-dv-OXY"/>
+                                    <outlet property="delegate" destination="0CD-PW-btG" id="gzy-TR-bor"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.09765625" green="0.09765625" blue="0.09765625" alpha="0.90735035211267601" colorSpace="custom" customColorSpace="sRGB"/>
