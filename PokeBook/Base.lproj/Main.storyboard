@@ -42,9 +42,37 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-oq-31l">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-oq-31l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.90735035210000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="94H-oh-PE5">
+                                    <rect key="frame" x="0.0" y="124" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jnt-pi-7sH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yid-SU-yxa">
+                                                    <rect key="frame" x="177.5" y="0.0" width="20" height="22"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading more..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlN-Q1-VEt">
+                                                    <rect key="frame" x="134.5" y="22" width="106.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="jnt-pi-7sH" secondAttribute="trailing" id="1AN-hO-94c"/>
+                                        <constraint firstAttribute="bottom" secondItem="jnt-pi-7sH" secondAttribute="bottom" id="TdJ-Vc-88V"/>
+                                        <constraint firstItem="jnt-pi-7sH" firstAttribute="leading" secondItem="94H-oh-PE5" secondAttribute="leading" id="hSr-b5-R1U"/>
+                                        <constraint firstItem="jnt-pi-7sH" firstAttribute="top" secondItem="94H-oh-PE5" secondAttribute="top" id="tZK-Mm-ngY"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemonCell" rowHeight="96" id="Bq3-fn-Lrt" customClass="PBPokemonTableViewCell" customModule="PokeBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
@@ -56,12 +84,29 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9sY-0P-dOS">
                                                     <rect key="frame" x="8" y="8" width="359" height="79.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zA9-Nr-lb3">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qae-Y6-i3o">
                                                             <rect key="frame" x="0.0" y="0.0" width="79.5" height="79.5"/>
+                                                            <subviews>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bJm-bq-Wkg">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="79.5" height="79.5"/>
+                                                                </activityIndicatorView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zA9-Nr-lb3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="79.5" height="79.5"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="zA9-Nr-lb3" secondAttribute="height" multiplier="1:1" id="2WF-eg-0wK"/>
+                                                                <constraint firstItem="bJm-bq-Wkg" firstAttribute="leading" secondItem="qae-Y6-i3o" secondAttribute="leading" id="Gpb-S9-ZyJ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="bJm-bq-Wkg" secondAttribute="trailing" id="Mvx-UP-tFS"/>
+                                                                <constraint firstItem="zA9-Nr-lb3" firstAttribute="leading" secondItem="qae-Y6-i3o" secondAttribute="leading" id="Snn-Px-RGJ"/>
+                                                                <constraint firstAttribute="width" secondItem="qae-Y6-i3o" secondAttribute="height" multiplier="1:1" id="Wyy-4M-O4h"/>
+                                                                <constraint firstAttribute="bottom" secondItem="zA9-Nr-lb3" secondAttribute="bottom" id="Xix-vE-1oV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zA9-Nr-lb3" secondAttribute="trailing" id="pXh-sS-mGm"/>
+                                                                <constraint firstItem="bJm-bq-Wkg" firstAttribute="top" secondItem="qae-Y6-i3o" secondAttribute="top" id="qcI-EH-lPa"/>
+                                                                <constraint firstItem="zA9-Nr-lb3" firstAttribute="top" secondItem="qae-Y6-i3o" secondAttribute="top" id="sD7-ZL-4zm"/>
+                                                                <constraint firstAttribute="bottom" secondItem="bJm-bq-Wkg" secondAttribute="bottom" id="v6L-7p-8An"/>
                                                             </constraints>
-                                                        </imageView>
+                                                        </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Cc-hM-zeT">
                                                             <rect key="frame" x="95.5" y="0.0" width="263.5" height="79.5"/>
                                                             <subviews>
@@ -112,6 +157,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="bJm-bq-Wkg" id="Nqg-Lq-0NI"/>
                                             <outlet property="heightLabel" destination="ffu-oP-ABk" id="qkY-4o-Vm3"/>
                                             <outlet property="nameLabel" destination="ejW-FN-Q67" id="3CO-ZM-caY"/>
                                             <outlet property="pokemonImg" destination="zA9-Nr-lb3" id="Nc1-yx-Bmr"/>
@@ -134,7 +180,14 @@
                             <constraint firstItem="jku-4R-1Jy" firstAttribute="top" secondItem="a5r-oq-31l" secondAttribute="bottom" id="nub-SL-t1w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pokemons" id="3ta-5S-l25"/>
+                    <navigationItem key="navigationItem" title="Pokemons" id="3ta-5S-l25">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="3lA-Eu-V9Y">
+                            <color key="tintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="updateBarButtonTapped:" destination="0CD-PW-btG" id="yDc-eD-cXl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="a5r-oq-31l" id="NXv-Eh-40W"/>
                     </connections>
@@ -150,9 +203,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="L6K-od-eJS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.45212835070000001" green="0.48737066979999999" blue="0.62505823370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="vDX-iW-UUg" kind="relationship" relationship="viewControllers" id="Ez4-OW-Igh"/>
@@ -167,13 +220,17 @@
         <scene sceneID="A0d-F9-ZgN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vDX-iW-UUg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pokemons" id="H8n-lX-yyW"/>
+                    <tabBarItem key="tabBarItem" title="Pokemons" image="items" id="H8n-lX-yyW"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fe0-Tz-Caj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <color key="barTintColor" red="0.45212835073471069" green="0.48737066984176636" blue="0.62505823373794556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -184,11 +241,11 @@
             </objects>
             <point key="canvasLocation" x="-744" y="-738"/>
         </scene>
-        <!--Items-->
+        <!--Navigation Controller-->
         <scene sceneID="eH3-3V-S0v">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nQ3-4e-XBd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Items" id="B92-3f-AXX"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="B92-3f-AXX"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
@@ -206,4 +263,7 @@
             <point key="canvasLocation" x="-743.20000000000005" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="items" width="21" height="25"/>
+    </resources>
 </document>

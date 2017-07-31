@@ -16,6 +16,7 @@ class PBPokemonTableViewCell: UITableViewCell {
   @IBOutlet weak var typeLabel: UILabel!
   @IBOutlet weak var heightLabel: UILabel!
   @IBOutlet weak var weightLabel: UILabel!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   private var name: String = "..." {
     didSet { nameLabel.text = name }
@@ -28,11 +29,25 @@ class PBPokemonTableViewCell: UITableViewCell {
     didSet { weightLabel.text = weightText }
   }
 
-  func config(with pokemon: Pokemon) {
-    self.name = pokemon.name
-    self.weightText = String(describing: pokemon.weight)
-    self.heightText = String(describing: pokemon.height)
+  private var imageUrl: String = "" {
+    didSet {
+      activityIndicator.startAnimating()
+      PBSpritesService.shared.getPokemonSprite(byUrl: URL(string: imageUrl)!) { [weak self] image in
+        self?.pokemonImg.image = image
+        self?.activityIndicator.stopAnimating()
+      }
+    }
   }
   
+  func config(with pokemon: Pokemon) {
+    self.name = pokemon.name
+    self.weightText = "Weight: \(String(describing: pokemon.weight))"
+    self.heightText = "Height: \(String(describing: pokemon.height))"
+    self.imageUrl = pokemon.imageUrl
+  }
+  
+  class func rowHigh() -> CGFloat {
+    return 96
+  }
   
 }

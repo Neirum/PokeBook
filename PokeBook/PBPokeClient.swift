@@ -23,9 +23,9 @@ final class PBPokeClient {
     self.baseUrl = baseUrl
   }
   
-  func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, PBServiceError?) -> Void ) -> URLSessionDataTask? {
+  func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, Error?) -> Void ) -> URLSessionDataTask? {
     if !Reachability.isConnectedToNetwork() {
-      completion(nil, .noInternetConnection)
+      completion(nil, PBServiceError.noInternetConnection)
       return nil
     }
   
@@ -35,8 +35,17 @@ final class PBPokeClient {
       parameters["token"] = token
     }
     */
-    
     let request = URLRequest(baseUrl: baseUrl, path: path, params: parameters, method: method)
+    return perform(request: request, completion: completion)
+  }
+}
+
+private extension PBPokeClient {
+  
+  func perform(request: URLRequest, completion: @escaping (Any?, Error?) -> Void ) -> URLSessionDataTask {
+    let _completion: (Any?, Error?) -> Void = { result, error in
+      DispatchQueue.main.async { completion(result, error) }
+    }
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       var object: Any? = nil
@@ -45,10 +54,12 @@ final class PBPokeClient {
       }
       
       if let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode {
-        completion(object, nil)
+        _completion(object, nil)
+      } else if let error = error {
+        _completion(nil, error)
       } else {
         let error = PBServiceError(object as? JSON)
-        completion(nil, error)
+        _completion(nil, error)
       }
     }
     task.resume()
