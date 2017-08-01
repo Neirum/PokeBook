@@ -9,9 +9,10 @@
 import Foundation
 
 protocol PBPokemonListView: class {
-  func updateList()
-  func startLoading()
-  func stopLoading()
+  func reloadList()
+  func insertItems(at indexes: [Int])
+  func startLoadingMore()
+  func stopLoadingMore()
   func showError(title: String, message: String)
 }
 
@@ -23,7 +24,7 @@ class PBPokemonListPresenter: PBPokemonListViewPresenter {
   
   func attach(_ view: PBPokemonListView) {
     self.view = view
-    //loadPokemons()
+    loadPokemons(count: 10)
   }
   
   func deattachView() {
@@ -36,19 +37,25 @@ class PBPokemonListPresenter: PBPokemonListViewPresenter {
     return pokemons[index]
   }
   
+  func prepareItem(for index: Int) {
+    if index >= itemsCount - 1 {
+      loadPokemons(count: 5)
+    }
+  }
+  
   
 }
 
 private extension PBPokemonListPresenter {
   
-  func loadPokemons() {
-    view?.startLoading()
-    service.loadPokemons(offset: 0) { [weak self] pokemonsArr, error in
-      if error == nil {
-        self?.pokemons = pokemonsArr
-        self?.view?.updateList()
+  func loadPokemons(count: Int) {
+    view?.startLoadingMore()
+    service.loadPokemons(offset: itemsCount, limit: count) { [weak self] pokemonsArr, error in
+      if error == nil, let startIndex = self?.itemsCount {
+        self?.pokemons += pokemonsArr
+        self?.view?.insertItems(at: Array(startIndex..<startIndex + count))
       }
-      self?.view?.stopLoading()
+      self?.view?.stopLoadingMore()
     }
   }
 }

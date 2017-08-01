@@ -65,7 +65,6 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jnt-pi-7sH" secondAttribute="trailing" id="1AN-hO-94c"/>
                                         <constraint firstAttribute="bottom" secondItem="jnt-pi-7sH" secondAttribute="bottom" id="TdJ-Vc-88V"/>
@@ -172,7 +171,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.09765625" green="0.09765625" blue="0.09765625" alpha="0.90735035211267601" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a5r-oq-31l" firstAttribute="top" secondItem="oac-zp-OCH" secondAttribute="bottom" id="Gnu-cb-WBI"/>
                             <constraint firstItem="a5r-oq-31l" firstAttribute="leading" secondItem="FQn-b7-eEE" secondAttribute="leading" id="O83-Vx-V5A"/>
@@ -189,6 +187,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomActivityIndicator" destination="yid-SU-yxa" id="Ezz-BC-xXy"/>
                         <outlet property="tableView" destination="a5r-oq-31l" id="NXv-Eh-40W"/>
                     </connections>
                 </viewController>
@@ -204,7 +203,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.45212835070000001" green="0.48737066979999999" blue="0.62505823370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.31613105535507202" green="0.32040613889694214" blue="0.37900787591934204" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -224,12 +223,12 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fe0-Tz-Caj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fe0-Tz-Caj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <color key="barTintColor" red="0.45212835073471069" green="0.48737066984176636" blue="0.62505823373794556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.31601241379342193" green="0.32074523625887646" blue="0.38145469769086282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

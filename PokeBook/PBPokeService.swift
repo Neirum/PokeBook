@@ -7,26 +7,25 @@
 //
 import Foundation
 
-
-final class PBPokemonService {
+final class PBPokeService {
   
   private let client = PBPokeClient(baseUrl: PokemonApi.pokemonEndPoint)
   
-  func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void ) -> URLSessionDataTask? {
-    return client.load(path: "\(id)", method: .get, params: [:]) { result, error in
+  func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
+    client.load(path: "\(id)", method: .get, params: [:]) { result, error in
       let res = result as? JSON
       completion(Pokemon(jsonDict: res), error)
     }
   }
   
-  func loadPokemons(offset: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
+  func loadPokemons(offset: Int, limit: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
     let loadGroup = DispatchGroup()
     var pokemons = [Pokemon]()
-    
-    for i in offset..<(offset + 10) {
+    let startIndex = offset + 1
+    for i in startIndex..<(startIndex + limit) {
       loadGroup.enter()
       DispatchQueue.global(qos: .utility).async(group: loadGroup) { [unowned self] in
-        let _ = self.loadPokemon(by: i) { (result, error) in
+        self.loadPokemon(by: i) { (result, error) in
           if let pokemon = result {
             pokemons.append(pokemon)
           }
