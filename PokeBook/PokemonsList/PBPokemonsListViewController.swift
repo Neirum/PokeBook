@@ -11,6 +11,8 @@ protocol PBPokemonListViewPresenter {
   func attach(_ view: PBPokemonListView)
   func deattachView()
   func item(for index: Int) -> Pokemon
+  func itemSelectedAt(at index: Int)
+  func itemToDetailShow() -> Pokemon
   func prepareItem(for index: Int)
   var itemsCount: Int { get }
 }
@@ -44,15 +46,16 @@ class PBPokemonsListViewController: UIViewController {
   @IBAction func updateBarButtonTapped(_ sender: Any) {
 
   }
+ 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    if segue.identifier == "detailPokemon" {
+      let vc = segue.destination as! PBPokemonDetailsViewController
+      vc.pokemonToShow = presenter.itemToDetailShow()
+    }
+  }
   
 }
-
-fileprivate extension PBPokemonsListViewController {
-  
-  
-  
-}
-
 
 extension PBPokemonsListViewController: UITableViewDataSource, UITableViewDelegate {
   
@@ -72,6 +75,11 @@ extension PBPokemonsListViewController: UITableViewDataSource, UITableViewDelega
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     presenter.prepareItem(for: indexPath.row)
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    presenter.itemSelectedAt(at: indexPath.row)
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }
@@ -99,6 +107,10 @@ extension PBPokemonsListViewController: PBPokemonListView {
   func showError(title: String, message: String) {
     print(title)
     print(message)
+  }
+  
+  func showPokemonDetails() {
+    performSegue(withIdentifier: "detailPokemon", sender: nil)
   }
   
 }

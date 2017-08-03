@@ -27,6 +27,7 @@ struct Pokemon {
   var sprite: UIImage?
 
 }
+
 extension Pokemon {
   
   init?(jsonDict: [String: Any]?) {

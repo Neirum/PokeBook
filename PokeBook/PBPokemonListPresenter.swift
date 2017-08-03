@@ -14,13 +14,15 @@ protocol PBPokemonListView: class {
   func startLoadingMore()
   func stopLoadingMore()
   func showError(title: String, message: String)
+  func showPokemonDetails()
 }
 
 class PBPokemonListPresenter: PBPokemonListViewPresenter {
   
   fileprivate weak var view: PBPokemonListView?
   fileprivate var pokemons = [Pokemon]()
-  fileprivate var service = PBPokemonService()
+  fileprivate var dataSource = PBPokemonRepository.shared
+  fileprivate var selectedPokemon: Int?
   
   func attach(_ view: PBPokemonListView) {
     self.view = view
@@ -43,6 +45,14 @@ class PBPokemonListPresenter: PBPokemonListViewPresenter {
     }
   }
   
+  func itemSelectedAt(at index: Int) {
+    selectedPokemon = index
+    view?.showPokemonDetails()
+  }
+  
+  func itemToDetailShow() -> Pokemon {
+    return pokemons[selectedPokemon!]
+  }
   
 }
 
@@ -50,7 +60,7 @@ private extension PBPokemonListPresenter {
   
   func loadPokemons(count: Int) {
     view?.startLoadingMore()
-    service.loadPokemons(offset: itemsCount, limit: count) { [weak self] pokemonsArr, error in
+    dataSource.getPokemons(offset: itemsCount, limit: count) { [weak self] pokemonsArr, error in
       if error == nil, let startIndex = self?.itemsCount {
         self?.pokemons += pokemonsArr
         self?.view?.insertItems(at: Array(startIndex..<startIndex + count))

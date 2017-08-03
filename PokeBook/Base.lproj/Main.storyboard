@@ -189,11 +189,91 @@
                     <connections>
                         <outlet property="bottomActivityIndicator" destination="yid-SU-yxa" id="Ezz-BC-xXy"/>
                         <outlet property="tableView" destination="a5r-oq-31l" id="NXv-Eh-40W"/>
+                        <segue destination="A8K-TE-px6" kind="show" identifier="detailPokemon" id="JN1-P6-zH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qpy-VL-3gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42" y="-738"/>
+        </scene>
+        <!--Pokemon Details View Controller-->
+        <scene sceneID="7CN-Z1-IxX">
+            <objects>
+                <viewController id="A8K-TE-px6" customClass="PBPokemonDetailsViewController" customModule="PokeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L5j-rg-Z4s"/>
+                        <viewControllerLayoutGuide type="bottom" id="y6R-wi-LUV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L0X-7c-kcj">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAO-d4-7h6">
+                                <rect key="frame" x="148" y="250" width="79" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dfq-xQ-Dds">
+                                <rect key="frame" x="87.5" y="20" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dfq-xQ-Dds" secondAttribute="height" multiplier="1:1" id="YT0-GN-TRw"/>
+                                    <constraint firstAttribute="width" constant="200" id="q8b-Di-Nbs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-eA-tp2">
+                                <rect key="frame" x="51" y="377" width="273" height="73"/>
+                                <color key="backgroundColor" red="1" green="0.5594913199593341" blue="0.28014709370378932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save in Cache">
+                                    <color key="titleColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonDidTapped" destination="A8K-TE-px6" eventType="touchUpInside" id="7rV-Ra-zzS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2F-MX-nSn">
+                                <rect key="frame" x="51" y="461" width="273" height="73"/>
+                                <color key="backgroundColor" red="1" green="0.55949132000000001" blue="0.28014709370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Load from Cache">
+                                    <color key="titleColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadButtonDidTapped" destination="A8K-TE-px6" eventType="touchUpInside" id="bNS-rO-6f1"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rpw-hv-SnA">
+                                <rect key="frame" x="177.5" y="487.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.73489054568527923" green="0.73489054568527923" blue="0.73489054568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dfq-xQ-Dds" firstAttribute="centerX" secondItem="L0X-7c-kcj" secondAttribute="centerX" id="1lf-MD-L8g"/>
+                            <constraint firstItem="rTb-eA-tp2" firstAttribute="top" secondItem="aAO-d4-7h6" secondAttribute="bottom" constant="91" id="2dc-vA-dz5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rTb-eA-tp2" secondAttribute="trailing" constant="35" id="Ha2-Ee-A9c"/>
+                            <constraint firstItem="rTb-eA-tp2" firstAttribute="leading" secondItem="L0X-7c-kcj" secondAttribute="leadingMargin" constant="35" id="JJU-q9-R3A"/>
+                            <constraint firstItem="Dfq-xQ-Dds" firstAttribute="top" secondItem="L5j-rg-Z4s" secondAttribute="bottom" constant="20" id="ReI-9F-YnB"/>
+                            <constraint firstItem="y6R-wi-LUV" firstAttribute="top" secondItem="rTb-eA-tp2" secondAttribute="bottom" constant="104" id="TnH-Wi-fZP"/>
+                            <constraint firstItem="Rpw-hv-SnA" firstAttribute="centerY" secondItem="g2F-MX-nSn" secondAttribute="centerY" id="d5S-Q6-F4r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g2F-MX-nSn" secondAttribute="trailing" constant="35" id="i1c-fG-suQ"/>
+                            <constraint firstItem="Rpw-hv-SnA" firstAttribute="centerX" secondItem="g2F-MX-nSn" secondAttribute="centerX" id="iIL-tM-fpP"/>
+                            <constraint firstItem="aAO-d4-7h6" firstAttribute="centerX" secondItem="L0X-7c-kcj" secondAttribute="centerX" id="iPV-Uq-ave"/>
+                            <constraint firstItem="g2F-MX-nSn" firstAttribute="top" secondItem="rTb-eA-tp2" secondAttribute="bottom" constant="11" id="kZU-B7-O3b"/>
+                            <constraint firstItem="aAO-d4-7h6" firstAttribute="top" secondItem="Dfq-xQ-Dds" secondAttribute="bottom" constant="30" id="r03-FU-Vos"/>
+                            <constraint firstItem="g2F-MX-nSn" firstAttribute="leading" secondItem="L0X-7c-kcj" secondAttribute="leadingMargin" constant="35" id="vp9-Ce-dac"/>
+                            <constraint firstItem="y6R-wi-LUV" firstAttribute="top" secondItem="g2F-MX-nSn" secondAttribute="bottom" constant="20" id="waq-lV-0s8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Rpw-hv-SnA" id="Axq-47-Cr9"/>
+                        <outlet property="imageView" destination="Dfq-xQ-Dds" id="aIT-Ib-9mx"/>
+                        <outlet property="nameLabel" destination="aAO-d4-7h6" id="3A2-xg-3zb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9RG-6Y-0mB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="-738"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HCO-UR-9YD">
@@ -223,9 +303,10 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fe0-Tz-Caj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="fe0-Tz-Caj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.31601241379342193" green="0.32074523625887646" blue="0.38145469769086282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>

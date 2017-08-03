@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CE4B75731F2F20550065A5CC /* PBSpritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75721F2F20550065A5CC /* PBSpritesService.swift */; };
-		CE4B75771F30A4D70065A5CC /* Pokemons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75751F30A4D70065A5CC /* Pokemons.xcdatamodeld */; };
 		CE4B757A1F30B7EF0065A5CC /* PBPokemonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75791F30B7EF0065A5CC /* PBPokemonRepository.swift */; };
 		CE4B757D1F30BC830065A5CC /* PBPokeLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B757C1F30BC830065A5CC /* PBPokeLocalStorage.swift */; };
+		CE4B75881F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75871F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift */; };
+		CE4B758A1F32F9B10065A5CC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75891F32F9B10065A5CC /* CoreDataController.swift */; };
+		CE4B75961F330E520065A5CC /* PokemonMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75951F330E520065A5CC /* PokemonMO.swift */; };
 		CED3169A1F1F92490049239D /* PBPokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED316991F1F92490049239D /* PBPokeService.swift */; };
-		CED3169E1F1FA1A50049239D /* PBPokemonListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3169D1F1FA1A50049239D /* PBPokemonListEntity.swift */; };
 		CED316A01F1FA2710049239D /* PBPokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */; };
 		CEF9588C1F1E30BC0017388A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9588B1F1E30BC0017388A /* AppDelegate.swift */; };
 		CEF958911F1E30BC0017388A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF9588F1F1E30BC0017388A /* Main.storyboard */; };
@@ -31,11 +32,12 @@
 
 /* Begin PBXFileReference section */
 		CE4B75721F2F20550065A5CC /* PBSpritesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBSpritesService.swift; sourceTree = "<group>"; };
-		CE4B75761F30A4D70065A5CC /* Pokemons.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokemons.xcdatamodel; sourceTree = "<group>"; };
 		CE4B75791F30B7EF0065A5CC /* PBPokemonRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonRepository.swift; sourceTree = "<group>"; };
 		CE4B757C1F30BC830065A5CC /* PBPokeLocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokeLocalStorage.swift; sourceTree = "<group>"; };
+		CE4B75871F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonDetailsViewController.swift; sourceTree = "<group>"; };
+		CE4B75891F32F9B10065A5CC /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		CE4B75951F330E520065A5CC /* PokemonMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonMO.swift; sourceTree = "<group>"; };
 		CED316991F1F92490049239D /* PBPokeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokeService.swift; sourceTree = "<group>"; };
-		CED3169D1F1FA1A50049239D /* PBPokemonListEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonListEntity.swift; sourceTree = "<group>"; };
 		CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonListPresenter.swift; sourceTree = "<group>"; };
 		CEF958881F1E30BC0017388A /* PokeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF9588B1F1E30BC0017388A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,8 +79,26 @@
 			isa = PBXGroup;
 			children = (
 				CE4B757C1F30BC830065A5CC /* PBPokeLocalStorage.swift */,
+				CE4B75891F32F9B10065A5CC /* CoreDataController.swift */,
 			);
 			name = PokeLocalStorage;
+			sourceTree = "<group>";
+		};
+		CE4B75861F31E3970065A5CC /* PokemonDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B75871F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift */,
+			);
+			name = PokemonDetails;
+			sourceTree = "<group>";
+		};
+		CE4B758C1F32FE870065A5CC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CEF958A41F1E52030017388A /* PokemonsList */,
+				CE4B75861F31E3970065A5CC /* PokemonDetails */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 		CED316981F1F727A0049239D /* Helpers */ = {
@@ -119,11 +139,11 @@
 		CEF9588A1F1E30BC0017388A /* PokeBook */ = {
 			isa = PBXGroup;
 			children = (
+				CE4B75951F330E520065A5CC /* PokemonMO.swift */,
 				CE4B757B1F30BBA50065A5CC /* PokeLocalStorage */,
 				CEF958A11F1E34EF0017388A /* PokeNetworkAPI */,
 				CE4B75781F30B2320065A5CC /* PokeRepository */,
-				CEF958A41F1E52030017388A /* PokemonsList */,
-				CE4B75751F30A4D70065A5CC /* Pokemons.xcdatamodeld */,
+				CE4B758C1F32FE870065A5CC /* Screens */,
 				CEF9588F1F1E30BC0017388A /* Main.storyboard */,
 				CEF958921F1E30BC0017388A /* PokeBook.xcdatamodeld */,
 				CED316981F1F727A0049239D /* Helpers */,
@@ -157,7 +177,6 @@
 		CEF958A41F1E52030017388A /* PokemonsList */ = {
 			isa = PBXGroup;
 			children = (
-				CED3169D1F1FA1A50049239D /* PBPokemonListEntity.swift */,
 				CEF958A71F1E53160017388A /* PBPokemonsListViewController.swift */,
 				CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */,
 				CEF958A51F1E523F0017388A /* PBPokemonTableViewCell.swift */,
@@ -266,19 +285,20 @@
 				CEF958A81F1E53160017388A /* PBPokemonsListViewController.swift in Sources */,
 				CED3169A1F1F92490049239D /* PBPokeService.swift in Sources */,
 				CEF958AD1F1F376D0017388A /* Pokemon.swift in Sources */,
-				CED3169E1F1FA1A50049239D /* PBPokemonListEntity.swift in Sources */,
 				CE4B757D1F30BC830065A5CC /* PBPokeLocalStorage.swift in Sources */,
+				CE4B758A1F32F9B10065A5CC /* CoreDataController.swift in Sources */,
 				CEF958941F1E30BC0017388A /* PokeBook.xcdatamodeld in Sources */,
 				CE4B75731F2F20550065A5CC /* PBSpritesService.swift in Sources */,
 				CEF958B71F1F67930017388A /* URL+Extension.swift in Sources */,
 				CEF9588C1F1E30BC0017388A /* AppDelegate.swift in Sources */,
 				CEF958A61F1E523F0017388A /* PBPokemonTableViewCell.swift in Sources */,
-				CE4B75771F30A4D70065A5CC /* Pokemons.xcdatamodeld in Sources */,
 				CEF958B21F1F53AA0017388A /* ServiceError.swift in Sources */,
 				CEF958B91F1F6FDE0017388A /* Reachability.swift in Sources */,
 				CEF958AF1F1F415A0017388A /* Constants.swift in Sources */,
 				CEF958B41F1F55E40017388A /* PBPokeClient.swift in Sources */,
 				CE4B757A1F30B7EF0065A5CC /* PBPokemonRepository.swift in Sources */,
+				CE4B75881F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift in Sources */,
+				CE4B75961F330E520065A5CC /* PokemonMO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,16 +471,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CE4B75751F30A4D70065A5CC /* Pokemons.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CE4B75761F30A4D70065A5CC /* Pokemons.xcdatamodel */,
-			);
-			currentVersion = CE4B75761F30A4D70065A5CC /* Pokemons.xcdatamodel */;
-			path = Pokemons.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		CEF958921F1E30BC0017388A /* PokeBook.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

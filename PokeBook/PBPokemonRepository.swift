@@ -22,11 +22,11 @@ class PBPokemonRepository {
   
   
   func getPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
-    
+    networkService.loadPokemon(by: id, completion: completion)
   }
   
   func getPokemons(offset: Int, limit: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
-  
+    networkService.loadPokemons(offset: offset, limit: limit, completion: completion)
   }
   
   func getPokemonSprite(by url: String, completion: @escaping (Data) -> Void) {
