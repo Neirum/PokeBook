@@ -12,13 +12,17 @@ final class PBPokeService {
   private let client = PBPokeClient(baseUrl: PokemonApi.pokemonEndPoint)
   
   func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
-    client.load(path: "\(id)", method: .get, params: [:]) { result, error in
+    let _ = client.load(path: "\(id)", method: .get, params: [:]) { result, error in
       let res = result as? JSON
       completion(Pokemon(jsonDict: res), error)
     }
   }
   
   func loadPokemons(offset: Int, limit: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
+    guard offset < 50 else {
+      completion([], PBServiceError.other)
+      return
+    }
     let loadGroup = DispatchGroup()
     var pokemons = [Pokemon]()
     let startIndex = offset + 1
@@ -35,7 +39,11 @@ final class PBPokeService {
     }
     loadGroup.notify(queue: DispatchQueue.main) {
       pokemons.sort(by: { $0.id < $1.id })
-      completion(pokemons, nil)
+      if pokemons.count < 1 {
+        completion(pokemons, PBServiceError.other)
+      } else {
+        completion(pokemons, nil)
+      }
     }
   }
   

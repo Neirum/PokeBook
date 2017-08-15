@@ -13,6 +13,7 @@
 		CE4B75881F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75871F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift */; };
 		CE4B758A1F32F9B10065A5CC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75891F32F9B10065A5CC /* CoreDataController.swift */; };
 		CE4B75961F330E520065A5CC /* PokemonMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75951F330E520065A5CC /* PokemonMO.swift */; };
+		CE4B75AA1F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75A91F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift */; };
 		CED3169A1F1F92490049239D /* PBPokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED316991F1F92490049239D /* PBPokeService.swift */; };
 		CED316A01F1FA2710049239D /* PBPokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */; };
 		CEF9588C1F1E30BC0017388A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9588B1F1E30BC0017388A /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		CE4B75871F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		CE4B75891F32F9B10065A5CC /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		CE4B75951F330E520065A5CC /* PokemonMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonMO.swift; sourceTree = "<group>"; };
+		CE4B75A91F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PBPokeLocalStorage+Sprites.swift"; sourceTree = "<group>"; };
 		CED316991F1F92490049239D /* PBPokeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokeService.swift; sourceTree = "<group>"; };
 		CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonListPresenter.swift; sourceTree = "<group>"; };
 		CEF958881F1E30BC0017388A /* PokeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,13 +77,13 @@
 			name = PokeRepository;
 			sourceTree = "<group>";
 		};
-		CE4B757B1F30BBA50065A5CC /* PokeLocalStorage */ = {
+		CE4B757B1F30BBA50065A5CC /* PokeLocalCache */ = {
 			isa = PBXGroup;
 			children = (
-				CE4B757C1F30BC830065A5CC /* PBPokeLocalStorage.swift */,
 				CE4B75891F32F9B10065A5CC /* CoreDataController.swift */,
+				CE4B75A81F42E48B0065A5CC /* PBPokeLocalStorage */,
 			);
-			name = PokeLocalStorage;
+			name = PokeLocalCache;
 			sourceTree = "<group>";
 		};
 		CE4B75861F31E3970065A5CC /* PokemonDetails */ = {
@@ -99,6 +101,15 @@
 				CE4B75861F31E3970065A5CC /* PokemonDetails */,
 			);
 			name = Screens;
+			sourceTree = "<group>";
+		};
+		CE4B75A81F42E48B0065A5CC /* PBPokeLocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B757C1F30BC830065A5CC /* PBPokeLocalStorage.swift */,
+				CE4B75A91F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift */,
+			);
+			name = PBPokeLocalStorage;
 			sourceTree = "<group>";
 		};
 		CED316981F1F727A0049239D /* Helpers */ = {
@@ -140,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				CE4B75951F330E520065A5CC /* PokemonMO.swift */,
-				CE4B757B1F30BBA50065A5CC /* PokeLocalStorage */,
+				CE4B757B1F30BBA50065A5CC /* PokeLocalCache */,
 				CEF958A11F1E34EF0017388A /* PokeNetworkAPI */,
 				CE4B75781F30B2320065A5CC /* PokeRepository */,
 				CE4B758C1F32FE870065A5CC /* Screens */,
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED316A01F1FA2710049239D /* PBPokemonListPresenter.swift in Sources */,
+				CE4B75AA1F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift in Sources */,
 				CEF958A81F1E53160017388A /* PBPokemonsListViewController.swift in Sources */,
 				CED3169A1F1F92490049239D /* PBPokeService.swift in Sources */,
 				CEF958AD1F1F376D0017388A /* Pokemon.swift in Sources */,

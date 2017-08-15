@@ -33,7 +33,9 @@ class PBPokemonListPresenter: PBPokemonListViewPresenter {
     self.view = nil
   }
   
-  var itemsCount: Int  { return pokemons.count }
+  var itemsCount: Int  {
+    return pokemons.count
+  }
   
   func item(for index: Int) -> Pokemon {
     return pokemons[index]
@@ -68,4 +70,5 @@ private extension PBPokemonListPresenter {
       self?.view?.stopLoadingMore()
     }
   }
+  
 }

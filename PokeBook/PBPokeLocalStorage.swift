@@ -12,51 +12,57 @@ import UIKit
 
 class PBPokeLocalStorage {
   
+  let cacheDirectory = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    
   func save(pokemon: Pokemon) {
-    create(pokemon: pokemon)
+    let _ = PokemonMO(pokemon)
     try! CoreDataController.shared.commit()
   }
   
   func save(pokemons: [Pokemon]) {
     for pok in pokemons {
-      create(pokemon: pok)
+      let _ = PokemonMO(pok)
     }
     try! CoreDataController.shared.commit()
   }
   
   func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
-    let context = CoreDataController.shared.context
-    let request: NSFetchRequest<PokemonMO> = PokemonMO.fetchRequest()
+    let request = PokemonMO.fetchRequest(by: id)
     
     do {
-      let pokemons = try context.fetch(request)
-      let fetchedPok = pokemons.last
-      guard let pokemon = fetchedPok else {
-        completion(nil, nil)
+      let pokemons = try CoreDataController.shared.context.fetch(request)
+      guard let pokemon = pokemons.first else {
+        completion(nil, PBServiceError.other)
         return
       }
-      completion(Pokemon.init(id: Int(pokemon.id),
-                              name: pokemon.name!,
-                              weight: 0, height: 0,
-                              imageUrl: pokemon.imageUrl!,
-                              sprite: nil),
-                 nil)
+      completion(Pokemon(pokemon), nil)
+
     } catch let error as NSError {
       completion(nil, error)
-      print(error)
     }
+    
   }
   
-}
-
-fileprivate extension PBPokeLocalStorage {
-  
-  func create(pokemon: Pokemon) {
-    let pokemonMO = PokemonMO(context: CoreDataController.shared.context)
+  func loadPokemons(offset: Int, limit: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
+    let _completion: ([Pokemon], Error?) -> (Void) =  { (pokemons, error) in
+      DispatchQueue.main.async { completion(pokemons, error) }
+    }
     
-    pokemonMO.name = pokemon.name
-    pokemonMO.id = Int16(pokemon.id)
-    pokemonMO.imageUrl = pokemon.imageUrl
+    let request = PokemonMO.fetchRequest(offset: offset, limit: limit)
+    do {
+      let pokemons = try CoreDataController.shared.context.fetch(request)
+      print("\(pokemons.count) pokemons fetched from persistance store")
+      guard pokemons.count == limit else {
+        _completion([], PBServiceError.other)
+        return
+      }
+      let pokemonsArr = pokemons.map({ Pokemon($0) })
+      _completion(pokemonsArr, nil)
+  
+    } catch let error as NSError {
+      _completion([], error)
+    }
+
   }
   
 }

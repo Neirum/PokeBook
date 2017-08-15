@@ -92,8 +92,10 @@ extension PBPokemonsListViewController: PBPokemonListView {
   }
   
   func insertItems(at paths: [Int]) {
+    self.tableView.beginUpdates()
     let indexes = paths.map { IndexPath.init(row: $0, section: 0) }
-    tableView.insertRows(at: indexes, with: .fade)
+    self.tableView.insertRows(at: indexes, with: .none)
+    self.tableView.endUpdates()
   }
   
   func startLoadingMore() {

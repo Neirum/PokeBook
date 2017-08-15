@@ -24,7 +24,6 @@ struct Pokemon {
   let weight: Int
   let height: Int
   let imageUrl: String
-  var sprite: UIImage?
 
 }
 
@@ -51,6 +50,13 @@ extension Pokemon {
     self.weight = 0
     self.height = 0
     self.imageUrl = "sprite/url"
+  }
+  
+  init(_ pokemonMO: PokemonMO) {
+    self.init(id: Int(pokemonMO.id),
+              name: pokemonMO.name!,
+              weight: 0, height: 0,
+              imageUrl: pokemonMO.imageUrl!)
   }
   
 }

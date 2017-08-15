@@ -40,8 +40,12 @@ class CoreDataController: NSObject {
     }
   }
   
-  func delete(object: NSManagedObject) {
+  func delete(_ object: NSManagedObject) {
     context.delete(object)
+  }
+  
+  func insert(_ object: NSManagedObject) {
+    context.insert(object)
   }
   
 }

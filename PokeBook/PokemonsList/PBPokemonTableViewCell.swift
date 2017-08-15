@@ -28,11 +28,15 @@ class PBPokemonTableViewCell: UITableViewCell {
   private var weightText: String = "0" {
     didSet { weightLabel.text = weightText }
   }
+  
+  private var typeText: String = "..." {
+    didSet { typeLabel.text = typeText }
+  }
 
   private var imageUrl: String = "" {
     didSet {
       activityIndicator.startAnimating()
-      PBSpritesService.shared.getPokemonSprite(byUrl: URL(string: imageUrl)!) { [weak self] image in
+      PBPokemonRepository.shared.getPokemonSprite(by: imageUrl) { [weak self] image in
         self?.pokemonImg.image = image
         self?.activityIndicator.stopAnimating()
       }
@@ -41,6 +45,7 @@ class PBPokemonTableViewCell: UITableViewCell {
   
   func config(with pokemon: Pokemon) {
     self.name = pokemon.name
+    self.typeText = "Id \(pokemon.id)"
     self.weightText = "Weight: \(String(describing: pokemon.weight))"
     self.heightText = "Height: \(String(describing: pokemon.height))"
     self.imageUrl = pokemon.imageUrl

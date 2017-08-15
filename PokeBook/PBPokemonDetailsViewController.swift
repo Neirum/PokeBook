@@ -15,7 +15,6 @@ class PBPokemonDetailsViewController: UIViewController {
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   var pokemonToShow: Pokemon?
-  let storage = PBPokeLocalStorage.init()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,18 +23,19 @@ class PBPokemonDetailsViewController: UIViewController {
   
 
   @IBAction func saveButtonDidTapped() {
-    storage.save(pokemon: pokemonToShow!)
+    PBPokemonRepository.shared.savePokemonSprite(imageView.image!, at: pokemonToShow!.imageUrl)
   }
  
   @IBAction func loadButtonDidTapped() {
     activityIndicator.startAnimating()
-    storage.loadPokemon(by: 0) { [weak self] pokemon, error in
-      if let pok = pokemon {
-        self?.pokemonToShow = pok
-      }
+    PBPokemonRepository.shared.getPokemonSprite(by: pokemonToShow!.imageUrl) { [weak self] image in
+      self?.imageView.image = image
       self?.activityIndicator.stopAnimating()
-      self?.configView()
     }
+  }
+  
+  @IBAction func deleteButtonDidTapped() {
+    self.imageView.image = nil
   }
   
 }
@@ -44,8 +44,9 @@ extension PBPokemonDetailsViewController {
   
   func configView() {
     nameLabel.text = pokemonToShow!.name
-    PBSpritesService.shared.getPokemonSprite(byUrl: URL(string:pokemonToShow!.imageUrl)!) { [weak self] image in
+    PBPokemonRepository.shared.getPokemonSprite(by: pokemonToShow!.imageUrl) { [weak self] image in
       self?.imageView.image = image
+      self?.activityIndicator.stopAnimating()
     }
   }
   
