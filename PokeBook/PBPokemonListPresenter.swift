@@ -63,7 +63,7 @@ private extension PBPokemonListPresenter {
   func loadPokemons(count: Int) {
     view?.startLoadingMore()
     dataSource.getPokemons(offset: itemsCount, limit: count) { [weak self] pokemonsArr, error in
-      if error == nil, let startIndex = self?.itemsCount {
+      if error == nil, let startIndex = self?.itemsCount, pokemonsArr.count > 0 {
         self?.pokemons += pokemonsArr
         self?.view?.insertItems(at: Array(startIndex..<startIndex + count))
       }

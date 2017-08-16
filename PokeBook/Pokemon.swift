@@ -60,3 +60,11 @@ extension Pokemon {
   }
   
 }
+
+extension Pokemon: Equatable {
+  
+  static func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+}

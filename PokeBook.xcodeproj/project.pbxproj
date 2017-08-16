@@ -14,6 +14,7 @@
 		CE4B758A1F32F9B10065A5CC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75891F32F9B10065A5CC /* CoreDataController.swift */; };
 		CE4B75961F330E520065A5CC /* PokemonMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75951F330E520065A5CC /* PokemonMO.swift */; };
 		CE4B75AA1F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75A91F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift */; };
+		CE4B75AC1F4436A30065A5CC /* PBCacheError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B75AB1F4436A30065A5CC /* PBCacheError.swift */; };
 		CED3169A1F1F92490049239D /* PBPokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED316991F1F92490049239D /* PBPokeService.swift */; };
 		CED316A01F1FA2710049239D /* PBPokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */; };
 		CEF9588C1F1E30BC0017388A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9588B1F1E30BC0017388A /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		CE4B75891F32F9B10065A5CC /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		CE4B75951F330E520065A5CC /* PokemonMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonMO.swift; sourceTree = "<group>"; };
 		CE4B75A91F42E4B00065A5CC /* PBPokeLocalStorage+Sprites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PBPokeLocalStorage+Sprites.swift"; sourceTree = "<group>"; };
+		CE4B75AB1F4436A30065A5CC /* PBCacheError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBCacheError.swift; sourceTree = "<group>"; };
 		CED316991F1F92490049239D /* PBPokeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokeService.swift; sourceTree = "<group>"; };
 		CED3169F1F1FA2710049239D /* PBPokemonListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPokemonListPresenter.swift; sourceTree = "<group>"; };
 		CEF958881F1E30BC0017388A /* PokeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		CE4B757B1F30BBA50065A5CC /* PokeLocalCache */ = {
 			isa = PBXGroup;
 			children = (
+				CE4B75AB1F4436A30065A5CC /* PBCacheError.swift */,
 				CE4B75891F32F9B10065A5CC /* CoreDataController.swift */,
 				CE4B75A81F42E48B0065A5CC /* PBPokeLocalStorage */,
 			);
@@ -309,6 +312,7 @@
 				CEF958AF1F1F415A0017388A /* Constants.swift in Sources */,
 				CEF958B41F1F55E40017388A /* PBPokeClient.swift in Sources */,
 				CE4B757A1F30B7EF0065A5CC /* PBPokemonRepository.swift in Sources */,
+				CE4B75AC1F4436A30065A5CC /* PBCacheError.swift in Sources */,
 				CE4B75881F31E3AE0065A5CC /* PBPokemonDetailsViewController.swift in Sources */,
 				CE4B75961F330E520065A5CC /* PokemonMO.swift in Sources */,
 			);

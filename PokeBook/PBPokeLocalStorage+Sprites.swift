@@ -12,7 +12,6 @@ import UIKit.UIImage
 extension PBPokeLocalStorage {
 
   func getPokemonSprite(by url: URL) -> UIImage? {
-    print("load image from cache")
     guard
       let fileName = getNameForFileFrom(url: url),
       let filePath = URL(string: fileName, relativeTo: cacheDirectory),
@@ -22,7 +21,6 @@ extension PBPokeLocalStorage {
   }
   
   func saveSprite(_ sprite: UIImage, at url: URL) {
-    print("save image to cache")
     guard
       let fileName = getNameForFileFrom(url: url),
       let filePath = URL(string: fileName, relativeTo: cacheDirectory)

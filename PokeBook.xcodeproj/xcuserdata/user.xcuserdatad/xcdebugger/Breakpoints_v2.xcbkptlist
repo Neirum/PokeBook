@@ -128,23 +128,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokeBook/PBPokemonRepository.swift"
-            timestampString = "524501635.286411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "getPokemons(offset:limit:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokeBook/PBPokemonRepository.swift"
@@ -157,14 +141,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PokeBook.PBPokemonRepository.(getPokemons (offset : Swift.Int, limit : Swift.Int, completion : (Swift.Array&lt;PokeBook.Pokemon&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "PokeBook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user/Documents/PokeBook/PokeBook/PBPokemonRepository.swift"
-                  timestampString = "524504049.446005"
+                  timestampString = "524583741.255629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -172,14 +156,14 @@
                   offsetFromSymbolStart = "272">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PokeBook.PBPokemonRepository.(getPokemons (offset : Swift.Int, limit : Swift.Int, completion : (Swift.Array&lt;PokeBook.Pokemon&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "PokeBook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user/Documents/PokeBook/PokeBook/PBPokemonRepository.swift"
-                  timestampString = "524504049.447608"
+                  timestampString = "524583741.257017"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -192,7 +176,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokeBook/PBPokemonRepository.swift"
@@ -208,7 +192,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokeBook/PBPokeService.swift"
@@ -218,6 +202,38 @@
             startingLineNumber = "42"
             endingLineNumber = "42"
             landmarkName = "loadPokemons(offset:limit:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokeBook/PBPokemonRepository.swift"
+            timestampString = "524559577.670681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getPokemons(offset:limit:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokeBook/PBPokeLocalStorage.swift"
+            timestampString = "524583740.183827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getUsavedPokemons(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

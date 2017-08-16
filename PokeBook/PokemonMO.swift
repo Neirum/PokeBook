@@ -18,18 +18,27 @@ extension PokemonMO {
     return fetch
   }
   
-  public class func fetchRequest(offset: Int, limit: Int) -> NSFetchRequest<PokemonMO> {
-    let fetch: NSFetchRequest<PokemonMO> = PokemonMO.fetchRequest()
-    
-    let predicate = NSPredicate(format: "id > %d AND id < %d", offset, offset + limit + 1)
-    fetch.predicate = predicate
-    
-    let sortDescr = NSSortDescriptor.init(key: "id", ascending: true)
-    fetch.sortDescriptors = [sortDescr]
-    
+  public class func fetchRequest(byIdentifiers ids: [Int]) -> NSFetchRequest<NSFetchRequestResult> {
+    let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "PokemonEntity")
+    fetch.resultType = .dictionaryResultType
+    fetch.propertiesToFetch = ["id"]
+    fetch.predicate = NSPredicate(format: "id IN %@", ids)
     return fetch
   }
   
+  public class func fetchRequest(offset: Int, limit: Int) -> NSFetchRequest<PokemonMO> {
+    let fetch: NSFetchRequest<PokemonMO> = PokemonMO.fetchRequest()
+//    let predicate = NSPredicate(format: "id > %d AND id < %d", offset, offset + limit + 1)
+//    fetch.predicate = predicate
+    let sortDescr = NSSortDescriptor.init(key: "id", ascending: true)
+    fetch.sortDescriptors = [sortDescr]
+   
+    fetch.fetchLimit = limit
+    fetch.fetchOffset = offset
+    
+    return fetch
+  }
+    
   convenience init(context: NSManagedObjectContext) {
     self.init(entity: PokemonMO.entity(), insertInto: context)
   }

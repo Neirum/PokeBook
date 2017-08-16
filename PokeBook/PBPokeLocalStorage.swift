@@ -20,7 +20,8 @@ class PBPokeLocalStorage {
   }
   
   func save(pokemons: [Pokemon]) {
-    for pok in pokemons {
+    for pok in getUsavedPokemons(from: pokemons) {
+//    for pok in pokemons {
       let _ = PokemonMO(pok)
     }
     try! CoreDataController.shared.commit()
@@ -28,7 +29,6 @@ class PBPokeLocalStorage {
   
   func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
     let request = PokemonMO.fetchRequest(by: id)
-    
     do {
       let pokemons = try CoreDataController.shared.context.fetch(request)
       guard let pokemon = pokemons.first else {
@@ -37,32 +37,34 @@ class PBPokeLocalStorage {
       }
       completion(Pokemon(pokemon), nil)
 
-    } catch let error as NSError {
-      completion(nil, error)
-    }
-    
+    } catch let error as NSError { completion(nil, error) }
   }
   
   func loadPokemons(offset: Int, limit: Int, completion: @escaping ([Pokemon], Error?) -> Void) {
-    let _completion: ([Pokemon], Error?) -> (Void) =  { (pokemons, error) in
+    let _completion: ([Pokemon], Error?) -> Void =  { (pokemons, error) in
       DispatchQueue.main.async { completion(pokemons, error) }
     }
-    
     let request = PokemonMO.fetchRequest(offset: offset, limit: limit)
     do {
       let pokemons = try CoreDataController.shared.context.fetch(request)
-      print("\(pokemons.count) pokemons fetched from persistance store")
-      guard pokemons.count == limit else {
+      guard pokemons.count > 0 else {
         _completion([], PBServiceError.other)
         return
       }
       let pokemonsArr = pokemons.map({ Pokemon($0) })
+      //getUsavedPokemons(from: pokemonsArr)
       _completion(pokemonsArr, nil)
   
-    } catch let error as NSError {
-      _completion([], error)
-    }
-
+    } catch let error as NSError { _completion([], error) }
+  }
+  
+  private func getUsavedPokemons(from arr: [Pokemon]) -> [Pokemon] {
+    let suggestIds = arr.map{ $0.id }
+    let result = try! CoreDataController.shared.context.fetch(PokemonMO.fetchRequest(byIdentifiers: suggestIds)) as! [[String: Int]]
+    let existingId = result.map { $0.first!.value }
+    
+    let pokemonsToSave = arr.filter { !existingId.contains($0.id) }
+    return pokemonsToSave
   }
   
 }
