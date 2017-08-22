@@ -28,14 +28,10 @@ extension PokemonMO {
   
   public class func fetchRequest(offset: Int, limit: Int) -> NSFetchRequest<PokemonMO> {
     let fetch: NSFetchRequest<PokemonMO> = PokemonMO.fetchRequest()
-//    let predicate = NSPredicate(format: "id > %d AND id < %d", offset, offset + limit + 1)
-//    fetch.predicate = predicate
     let sortDescr = NSSortDescriptor.init(key: "id", ascending: true)
     fetch.sortDescriptors = [sortDescr]
-   
     fetch.fetchLimit = limit
     fetch.fetchOffset = offset
-    
     return fetch
   }
     

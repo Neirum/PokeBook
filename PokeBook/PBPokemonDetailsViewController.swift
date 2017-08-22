@@ -23,7 +23,7 @@ class PBPokemonDetailsViewController: UIViewController {
   
 
   @IBAction func saveButtonDidTapped() {
-    PBPokemonRepository.shared.savePokemonSprite(imageView.image!, at: pokemonToShow!.imageUrl)
+
   }
  
   @IBAction func loadButtonDidTapped() {

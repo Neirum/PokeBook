@@ -12,14 +12,6 @@ import UIKit
 
 class PBSpritesService {
   
-  //static let shared: PBSpritesService = PBSpritesService()
-  
- // fileprivate var cache: [URL: Data]
-  
-//  private init() {
-//    self.cache = [URL: Data]()
-//  }
-  
   class func getPokemonSprite(byUrl url: URL, completion: @escaping (UIImage?) -> Void) {
     loadPokemonSprite(byUrl: url, completion: completion)
   }

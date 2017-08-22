@@ -11,7 +11,7 @@ import UIKit
 
 struct Pokemon {
   
-  enum JsonKeys: String {
+  fileprivate enum JsonKeys: String {
     case id
     case name 
     case height
@@ -29,13 +29,14 @@ struct Pokemon {
 
 extension Pokemon {
   
-  init?(jsonDict: [String: Any]?) {
-    guard let name = jsonDict?[JsonKeys.name.rawValue] as? String,
-          let weight = jsonDict?[JsonKeys.weight.rawValue] as? Int,
-          let height = jsonDict?[JsonKeys.height.rawValue] as? Int,
-          let id = jsonDict?[JsonKeys.id.rawValue] as? Int,
-          let imageUrl = jsonDict?[JsonKeys.sprites.rawValue] as? [String: Any]
-      else { return nil }
+  init?(jsonDict: [String: Any]) {
+    guard
+      let name = jsonDict[JsonKeys.name.rawValue] as? String,
+      let weight = jsonDict[JsonKeys.weight.rawValue] as? Int,
+      let height = jsonDict[JsonKeys.height.rawValue] as? Int,
+      let id = jsonDict[JsonKeys.id.rawValue] as? Int,
+      let imageUrl = jsonDict[JsonKeys.sprites.rawValue] as? [String: Any]
+    else { return nil }
     
     self.id = id
     self.name = name

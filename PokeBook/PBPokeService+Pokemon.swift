@@ -12,9 +12,22 @@ final class PBPokeService {
   private let client = PBPokeClient(baseUrl: PokemonApi.pokemonEndPoint)
   
   func loadPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
-    let _ = client.load(path: "\(id)", method: .get, params: [:]) { result, error in
-      let res = result as? JSON
-      completion(Pokemon(jsonDict: res), error)
+    client.load(path: "\(id)", method: .get, params: [:]) { result, error in
+      guard let result = result as? JSON else {
+        completion(nil, error)
+        return
+      }
+      completion(Pokemon(jsonDict: result), error)
+    }
+  }
+  
+  func loadPokemon(name: String, completion: @escaping (Pokemon?, Error?) -> Void) {
+    client.load(path: "\(name)", method: .get, params: [:]) { result, error in
+      guard let result = result as? JSON else {
+        completion(nil, error)
+        return
+      }
+      completion(Pokemon(jsonDict: result), error)
     }
   }
   
@@ -46,6 +59,5 @@ final class PBPokeService {
       }
     }
   }
-  
   
 }

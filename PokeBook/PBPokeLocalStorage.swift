@@ -21,7 +21,6 @@ class PBPokeLocalStorage {
   
   func save(pokemons: [Pokemon]) {
     for pok in getUsavedPokemons(from: pokemons) {
-//    for pok in pokemons {
       let _ = PokemonMO(pok)
     }
     try! CoreDataController.shared.commit()
@@ -52,7 +51,6 @@ class PBPokeLocalStorage {
         return
       }
       let pokemonsArr = pokemons.map({ Pokemon($0) })
-      //getUsavedPokemons(from: pokemonsArr)
       _completion(pokemonsArr, nil)
   
     } catch let error as NSError { _completion([], error) }

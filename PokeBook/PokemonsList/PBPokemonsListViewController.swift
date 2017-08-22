@@ -21,6 +21,7 @@ class PBPokemonsListViewController: UIViewController {
   @IBOutlet fileprivate weak var tableView: UITableView!
   @IBOutlet fileprivate weak var bottomActivityIndicator: UIActivityIndicatorView!
   
+  fileprivate let cellIdentifier = "pokemonCell"
   fileprivate let presenter: PBPokemonListViewPresenter = PBPokemonListPresenter()
   
   fileprivate var loadMoreStatus = false {
@@ -51,6 +52,7 @@ class PBPokemonsListViewController: UIViewController {
     super.prepare(for: segue, sender: sender)
     if segue.identifier == "detailPokemon" {
       let vc = segue.destination as! PBPokemonDetailsViewController
+      
       vc.pokemonToShow = presenter.itemToDetailShow()
     }
   }
@@ -64,7 +66,7 @@ extension PBPokemonsListViewController: UITableViewDataSource, UITableViewDelega
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "pokemonCell") as! PBPokemonTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! PBPokemonTableViewCell
     cell.config(with: presenter.item(for: indexPath.row))
     return cell
   }

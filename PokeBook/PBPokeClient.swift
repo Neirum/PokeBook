@@ -23,7 +23,7 @@ final class PBPokeClient {
     self.baseUrl = baseUrl
   }
   
-  func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, Error?) -> Void ) -> URLSessionDataTask? {
+  @discardableResult func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, Error?) -> Void ) -> URLSessionDataTask? {
     if !Reachability.isConnectedToNetwork() {
       completion(nil, PBServiceError.noInternetConnection)
       return nil

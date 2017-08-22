@@ -21,6 +21,7 @@ class PBPokemonRepository {
     self.networkService = PBPokeService()
   }
   
+  //MARK: - Pokemons
   func getPokemon(by id: Int, completion: @escaping (Pokemon?, Error?) -> Void) {
     networkService.loadPokemon(by: id, completion: completion)
   }
@@ -53,6 +54,7 @@ class PBPokemonRepository {
     cacheService.saveSprite(sprite, at: url)
   }
   
+  //MARK: - Private Actions
   private func loadPokemonImageFromServer(url: URL, completion: @escaping (UIImage) -> Void) {
     PBSpritesService.getPokemonSprite(byUrl: url, completion: { [weak self] image in
       if let sprite = image {

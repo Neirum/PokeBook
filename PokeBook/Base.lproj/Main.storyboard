@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.90735035210000003" colorSpace="custom" customColorSpace="sRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="94H-oh-PE5">
+                                <view key="tableFooterView" contentMode="scaleToFill" id="94H-oh-PE5" userLabel="LoadingMore">
                                     <rect key="frame" x="0.0" y="124" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -208,82 +207,7 @@
                     <view key="view" contentMode="scaleToFill" id="L0X-7c-kcj">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dfq-xQ-Dds">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="332.5"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NfX-xM-Cac" userLabel="ButtonsStack">
-                                <rect key="frame" x="0.0" y="332.5" width="375" height="221.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAO-d4-7h6">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mwl-Pc-3ut" userLabel="CacheButtonsStack">
-                                        <rect key="frame" x="0.0" y="76.5" width="375" height="68.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-eA-tp2">
-                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="68.5"/>
-                                                <color key="backgroundColor" red="1" green="0.5594913199593341" blue="0.28014709370378932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Save in Cache">
-                                                    <color key="titleColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="saveButtonDidTapped" destination="A8K-TE-px6" eventType="touchUpInside" id="7rV-Ra-zzS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2F-MX-nSn">
-                                                <rect key="frame" x="191.5" y="0.0" width="183.5" height="68.5"/>
-                                                <color key="backgroundColor" red="1" green="0.55949132000000001" blue="0.28014709370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Load from Cache">
-                                                    <color key="titleColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="loadButtonDidTapped" destination="A8K-TE-px6" eventType="touchUpInside" id="bNS-rO-6f1"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOl-vz-BCU">
-                                        <rect key="frame" x="0.0" y="153" width="375" height="68.5"/>
-                                        <color key="backgroundColor" red="0.73489054568527923" green="0.44049415858613183" blue="0.54161566089310986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Delete Image">
-                                            <color key="titleColor" red="0.99541014630000002" green="1" blue="0.97899286919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deleteButtonDidTapped" destination="A8K-TE-px6" eventType="touchUpInside" id="y6Q-Dq-R12"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rpw-hv-SnA">
-                                <rect key="frame" x="177" y="267" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.73489054568527923" green="0.73489054568527923" blue="0.73489054568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Dfq-xQ-Dds" firstAttribute="top" secondItem="L5j-rg-Z4s" secondAttribute="bottom" id="7lQ-bX-Zs7"/>
-                            <constraint firstItem="y6R-wi-LUV" firstAttribute="top" secondItem="NfX-xM-Cac" secondAttribute="bottom" id="G3d-AE-4Fh"/>
-                            <constraint firstItem="NfX-xM-Cac" firstAttribute="leading" secondItem="L0X-7c-kcj" secondAttribute="leading" id="K2F-ct-Crs"/>
-                            <constraint firstItem="Dfq-xQ-Dds" firstAttribute="leading" secondItem="L0X-7c-kcj" secondAttribute="leading" id="M4o-HG-wGz"/>
-                            <constraint firstItem="NfX-xM-Cac" firstAttribute="top" secondItem="Dfq-xQ-Dds" secondAttribute="bottom" id="S75-Al-buh"/>
-                            <constraint firstItem="Rpw-hv-SnA" firstAttribute="centerX" secondItem="L0X-7c-kcj" secondAttribute="centerX" id="c5C-3a-RTm"/>
-                            <constraint firstAttribute="trailing" secondItem="NfX-xM-Cac" secondAttribute="trailing" id="pd3-Uf-Sio"/>
-                            <constraint firstItem="Rpw-hv-SnA" firstAttribute="centerY" secondItem="L0X-7c-kcj" secondAttribute="centerY" id="ppc-yy-nxg"/>
-                            <constraint firstAttribute="trailing" secondItem="Dfq-xQ-Dds" secondAttribute="trailing" id="sko-P6-Ndl"/>
-                            <constraint firstItem="NfX-xM-Cac" firstAttribute="height" secondItem="L0X-7c-kcj" secondAttribute="height" multiplier="0.4" id="wo2-BM-QUl"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="Rpw-hv-SnA" id="Axq-47-Cr9"/>
-                        <outlet property="imageView" destination="Dfq-xQ-Dds" id="aIT-Ib-9mx"/>
-                        <outlet property="nameLabel" destination="aAO-d4-7h6" id="3A2-xg-3zb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RG-6Y-0mB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
